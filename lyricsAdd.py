@@ -9,7 +9,8 @@ import os
 #o_sheet = o_workbook.sheet_by_index(0)
 #rows = o_sheet.nrows
 
-pardir = os.path.dirname(os.getcwd())
+
+#pardir = os.path.dirname(os.getcwd())
 
 ##Takes Input On Song Name And URL To Lyrics
 print('Name: ')
@@ -30,14 +31,17 @@ link = input()
 #workbook.save('C://Users//Blue2015//Google Drive//Synced//MP3//Lyrics.xlsx')
 
 ##Opens A Text File Containing *url* | *name* for each song
-with open (os.path.join(pardir,'lyrics.txt'),'a') as file:
+
+with open (os.path.join(os.getcwd(),'.lyrics.txt'),'a') as file:
     file.write('\n' + link + ' | ' + songName)##Adds New Input
 
+        
 
-exec(open(os.path.join(pardir,'createSort.py')).read())##Copies Song/URLs from text file to lyricsSortedInput.txt
-exec(open(os.path.join(pardir,'sortTxt.py')).read())##Takes Input from above and outputs sorted version to lyricsSortedOutput.txt
-exec(open(os.path.join(pardir,'xlCreate.py')).read())##Puts Sorted Output and writes to excel spreadsheet 
-exec(open(os.path.join(pardir,'lyricsUpdateHTML.py')).read())##Reads Excel sheet to create HTML page of links
+
+exec(open(os.path.join(os.getcwd(),'createSort.py')).read())##Copies Song/URLs from text file to lyricsSortedInput.txt
+exec(open(os.path.join(os.getcwd(),'sortTxt.py')).read())##Takes Input from above and outputs sorted version to lyricsSortedOutput.txt
+exec(open(os.path.join(os.getcwd(),'xlCreate.py')).read())##Puts Sorted Output and writes to excel spreadsheet 
+exec(open(os.path.join(os.getcwd(),'lyricsUpdateHTML.py')).read())##Reads Excel sheet to create HTML page of links
 
 print('lyricsAdd')
 

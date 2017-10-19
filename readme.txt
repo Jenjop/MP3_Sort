@@ -14,3 +14,4 @@ If song contains lyrics, Lyrics category may be used
 		Songs sorted alphabetically and output to new text file
 		Excel sheet created with cells for songs and urls based on sorted text file
 		HTML of links created using Excel sheet
+All Created Files will begin with "_"
