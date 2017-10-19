@@ -3,7 +3,7 @@
 #dataFrame.sort([0])
 import re,os
 
-pardir = os.path.dirname(os.getcwd())
+#pardir = os.path.dirname(os.getcwd())
 
 lyricsRegex = re.compile(r'''
     (http.*)    #Link --> Group 1
@@ -13,7 +13,7 @@ lyricsRegex = re.compile(r'''
 
 out = ''
 
-with open(os.path.join(pardir,'lyricsSortedInput.txt'),'r+') as file:
+with open(os.path.join(os.getcwd(),'.lyricsSortedInput.txt'),'r+') as file:
     data = file.readlines()
     #print(data[1])
     #print(data[1].split("|")[1])
@@ -44,8 +44,13 @@ with open(os.path.join(pardir,'lyricsSortedInput.txt'),'r+') as file:
     #print(data)
     #print(sorted)
 
-with open(os.path.join(pardir,'lyricsSortedOutput.txt'),'r+') as file:
-    file.truncate(0)
-    file.write(out)
+while True:
+    try:
+        with open(os.path.join(os.getcwd(),'.lyricsSortedOutput.txt'),'r+') as file:
+            file.truncate(0)
+            file.write(out)
+        break
+    except FileNotFoundError:
+        open(os.path.join(os.getcwd(),'.lyricsSortedOutput.txt'),'w+')
     
 print('sortTxt')

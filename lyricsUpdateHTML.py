@@ -1,8 +1,8 @@
 import xlrd,time,os
 
-pardir = os.path.dirname(os.getcwd())
+#pardir = os.path.dirname(os.getcwd())
 
-workbook = xlrd.open_workbook(os.path.join(pardir,'Lyrics.xlsx'))
+workbook = xlrd.open_workbook(os.path.join(os.getcwd(),'.Lyrics.xlsx'))
 sheet = workbook.sheet_by_index(0)
 
 
@@ -21,10 +21,15 @@ for i in range(sheet.nrows):
 out +='</body>\n</html>'
 #print(out)
 
-with open (os.path.join(pardir,'lyrics.html'),'r+') as file:
-    file.truncate(0)
-    file.write(out)
-    file.close()
+while True:
+    try:
+        with open (os.path.join(os.getcwd(),'lyrics.html'),'r+') as file:
+            file.truncate(0)
+            file.write(out)
+            file.close()
+        break
+    except FileNotFoundError:
+        open (os.path.join(os.getcwd(),'lyrics.html'),'w+')
 
 print('lyricsUpdateHTML')
 #print(out)

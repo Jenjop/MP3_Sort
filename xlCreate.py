@@ -1,9 +1,9 @@
 import re,os
 import xlsxwriter as xlw
 
-pardir = os.path.dirname(os.getcwd())
+#pardir = os.path.dirname(os.getcwd())
 
-workbook = xlw.Workbook(os.path.join(pardir,'Lyrics.xlsx'))
+workbook = xlw.Workbook(os.path.join(os.getcwd(),'.Lyrics.xlsx'))
 worksheet = workbook.add_worksheet()
 row = 0
 
@@ -14,7 +14,7 @@ lyricsRegex = re.compile(r'''
     ''',re.VERBOSE) ##Use re.VERBOSE to allow with ''' to allow regex to span multiple lines
 #lyricsRegex2 = re.split(r'\n')
 
-with open (os.path.join(pardir,'lyricsSortedOutput.txt')) as file:
+with open (os.path.join(os.getcwd(),'.lyricsSortedOutput.txt')) as file:
 	lyrics = file.read()
 #print(lyrics)
 #search = lyricsRegex.search(lyrics)
