@@ -1,17 +1,11 @@
-Run MusicScriptPublic.py
+mp3_sort.py runs as a Python script.
+mp3_sort_cmd.py runs in command prompt for windows if colorama is imported
 
-- Automatically runs the rest
-- I may update and simplify the process given time
 
 Explanation:
-MusicScriptPublic sorts mp3 files based on user classification
-If song contains lyrics, Lyrics category may be used
+mp3_sort sorts mp3 files in the same folder based on user classification
+If song contains lyrics, Lyric category may be used
 	Songs with lyrics will be prompted to input name of song and url to lyrics
-	Python Files are then run to create a HTML file containing alphabetically sorted links
-		Process:
-		Text file with a song name and url on each line
-		Copied over to a temporary text file
-		Songs sorted alphabetically and output to new text file
-		Excel sheet created with cells for songs and urls based on sorted text file
-		HTML of links created using Excel sheet
-All Created Files will begin with "_"
+	A html will then be created with links to lyrics for all input songs.
+	
+Append to playlist option will add relative filepath to a.m3u (playlist file)
